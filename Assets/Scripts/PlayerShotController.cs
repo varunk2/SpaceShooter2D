@@ -1,15 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShotController : MonoBehaviour
 {
     public float shotSpeed = 7f;
-
-    void Start()
-    {
-        
-    }
+    public GameObject impactEffect;
+    public GameObject objectExplosion;
 
     void Update()
     {
@@ -18,12 +16,14 @@ public class PlayerShotController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.GetComponent<MovingObjectsController>() != null) {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+            Instantiate(objectExplosion, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
     }
 
-    private void OnBecameInvisible() {
+    private void OnBecameInvisible(){
         Destroy(gameObject);
     }
 }
