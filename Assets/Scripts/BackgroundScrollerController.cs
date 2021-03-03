@@ -7,7 +7,7 @@ public class BackgroundScrollerController : MonoBehaviour
     public Transform Background1, Background2;
     public float scrollSpeed;
 
-    private float _backgroundWidth; 
+    private float _backgroundWidth;
 
     void Start()
     {
