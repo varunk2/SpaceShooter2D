@@ -326,6 +326,8 @@ MonoBehaviour:
   topRightLimit: {fileID: 1368140190}
   shotPoint: {fileID: 1960830686}
   shot: {fileID: 7736571853803429017, guid: 34e6f93dbdf8277498c9cd263e8f3080, type: 3}
+  playerExplosionEffect: {fileID: 1892108873315121522, guid: d8eb00bccdde7564b9361369d964eeb5,
+    type: 3}
   timeBetweenShots: 0.2
 --- !u!58 &90563845
 CircleCollider2D:
