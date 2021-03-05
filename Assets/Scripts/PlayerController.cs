@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform shotPoint;
     public GameObject shot;
-    public GameObject playerExplosionEffect; 
+    // public GameObject playerExplosionEffect;
 
     public float timeBetweenShots = 0.1f;
     private float shotCounter;
@@ -49,10 +49,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log(shotCounter);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    /*private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.GetComponent<MovingObjectsController>() != null) {
             Destroy(gameObject);
             Instantiate(playerExplosionEffect, transform.position, Quaternion.identity);
         }
-    }
+    }*/
 }

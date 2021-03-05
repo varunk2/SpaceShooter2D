@@ -47,6 +47,9 @@ TagManager:
   - name: SpaceObjects
     uniqueID: 3200380229
     locked: 0
+  - name: Enemies
+    uniqueID: 1632873177
+    locked: 0
   - name: Player
     uniqueID: 1749254225
     locked: 0
