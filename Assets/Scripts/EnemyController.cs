@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour
     public float timeBetweenShots;
     public bool canShoot;
 
+    public int currentHealth;
+    public GameObject deathEffect;
+
     private float _shotCounter;
     private bool _allowShooting;
 
@@ -57,6 +60,14 @@ public class EnemyController : MonoBehaviour
         float newMoveSpeedY = direction.y * moveSpeed * Time.deltaTime;
         float newMoveSpeedZ = 0f;
         transform.position += new Vector3(newMoveSpeedX, newMoveSpeedY, newMoveSpeedZ);
+    }
+
+    public void DamageEnemy() {
+        currentHealth--;
+        if (currentHealth < 0) {
+            gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnBecameInvisible() {

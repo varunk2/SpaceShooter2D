@@ -30,7 +30,6 @@ public class HealthManagerController : MonoBehaviour
         currentHealth--;
 
         if (currentHealth < 0) {
-            //StartCoroutine(DeathEffect());
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }

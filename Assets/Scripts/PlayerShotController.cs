@@ -24,7 +24,7 @@ public class PlayerShotController : MonoBehaviour
             Instantiate(objectExplosion, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         } else if (enemy != null) {
-            Instantiate(impactEffect, transform.position, Quaternion.identity);
+            enemy.DamageEnemy();
         }
 
     }
