@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +12,23 @@ public class EnemyController : MonoBehaviour
     public float changeDirectionXPoint;
     public Vector2 changedDirection;
 
+    public GameObject shotToFire;
+    public Transform firePoint;
+    public float timeBetweenShots;
+    public bool canShoot;
+
+    private float _shotCounter;
+    private bool _allowShooting;
+
+    private void Start() {
+        _shotCounter = timeBetweenShots;
+    }
+
     void Update() {
         EnemyMovement();
     }
 
     private void EnemyMovement() {
-        //transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
 
         if (!shouldChangeDirection) {
             ChangeDirection(startDirection);
@@ -27,6 +39,17 @@ public class EnemyController : MonoBehaviour
                 ChangeDirection(changedDirection);
             }
         }
+
+        if (_allowShooting) {
+            _shotCounter -= Time.deltaTime;
+            if (_shotCounter <= 0) Shoot();
+        }
+    }
+
+    private void Shoot() {
+        Instantiate(shotToFire, firePoint.position, Quaternion.identity);
+
+        _shotCounter = timeBetweenShots;
     }
 
     private void ChangeDirection(Vector2 direction) {
@@ -38,6 +61,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnBecameInvisible() {
         Destroy(gameObject);
+    }
+
+    private void OnBecameVisible() {
+        if (canShoot) _allowShooting = true;
     }
 
     private void OnCollisionEnter2D(Collision2D otherGameObject) {

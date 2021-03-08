@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &566467856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566467857}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &566467857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566467856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.53, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6332553688579941466}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6332553688579941468
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,8 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6332553688579941466}
   - component: {fileID: 6332553688579941467}
-  - component: {fileID: 6332553688579941465}
   - component: {fileID: 6332553688579941464}
+  - component: {fileID: 6332553688579941465}
   m_Layer: 0
   m_Name: Enemy Green
   m_TagString: Untagged
@@ -29,7 +59,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.82, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 566467857}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,23 +114,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6332553688579941465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6332553688579941468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea65b16b2071984d9dd1ad75bfa93e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  startDirection: {x: -1, y: 0.25}
-  shouldChangeDirection: 1
-  changeDirectionXPoint: 0
-  changedDirection: {x: -0.75, y: -0.5}
 --- !u!61 &6332553688579941464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,3 +140,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9070935, y: 1.2501276}
   m_EdgeRadius: 0
+--- !u!114 &6332553688579941465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332553688579941468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea65b16b2071984d9dd1ad75bfa93e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  startDirection: {x: -1, y: 0.25}
+  shouldChangeDirection: 1
+  changeDirectionXPoint: 0
+  changedDirection: {x: -0.75, y: -0.5}
+  shotToFire: {fileID: 5454572739251453276, guid: 2e1b037546800814c83344c7ffda49de,
+    type: 3}
+  firePoint: {fileID: 566467857}
+  timeBetweenShots: 0.5
+  canShoot: 1

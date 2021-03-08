@@ -15,12 +15,18 @@ public class PlayerShotController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.GetComponent<MovingObjectsController>() != null) {
+        MovingObjectsController spaceObjects = other.gameObject.GetComponent<MovingObjectsController>();
+        EnemyController enemy = other.gameObject.GetComponent<EnemyController>();
+
+        if (spaceObjects != null) {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Instantiate(objectExplosion, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+        } else if (enemy != null) {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
+
     }
 
     private void OnBecameInvisible(){
