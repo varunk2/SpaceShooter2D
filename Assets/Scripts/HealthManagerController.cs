@@ -32,7 +32,16 @@ public class HealthManagerController : MonoBehaviour
         if (currentHealth < 0) {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
+
+            GameManager.instance.KillPlayer();
+            WaveManager.instance.canSpawnWaves = false;
         }
+    }
+
+    public void Respawn() {
+        gameObject.SetActive(true);
+        currentHealth = maxHealth;
+
     }
 
     private IEnumerator DeathEffect() {

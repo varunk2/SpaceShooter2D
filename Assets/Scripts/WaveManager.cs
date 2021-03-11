@@ -18,7 +18,6 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         timeToNextWave = waveObjects[0].timeToSpawn;
-        Debug.Log(timeToNextWave);
     }
 
     void Update() {
@@ -40,6 +39,12 @@ public class WaveManager : MonoBehaviour
                     canSpawnWaves = false;
                 }
             }
+        }
+    }
+
+    public void ContinueSpawning() {
+        if(currentWave < waveObjects.Length - 1 && timeToNextWave > 0) {
+            canSpawnWaves = true;
         }
     }
 }
