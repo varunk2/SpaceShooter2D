@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
             StartCoroutine(RespawnCoroutine());
         } else {
             // Game Over Code
+            UIManager.instance.ToggleGameOverScreen(true);
+            //UIManager.instance.gameOverScreen.SetActive(true);
+            WaveManager.instance.ToggleWaves(false);
         }
     }
 

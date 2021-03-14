@@ -36,7 +36,7 @@ public class WaveManager : MonoBehaviour
 
                     timeToNextWave = waveObjects[currentWave].timeToSpawn;
                 } else {
-                    canSpawnWaves = false;
+                    ToggleWaves(false);
                 }
             }
         }
@@ -44,8 +44,12 @@ public class WaveManager : MonoBehaviour
 
     public void ContinueSpawning() {
         if(currentWave < waveObjects.Length - 1 && timeToNextWave > 0) {
-            canSpawnWaves = true;
+            ToggleWaves(true);
         }
+    }
+
+    public void ToggleWaves(bool toggle) {
+        canSpawnWaves = toggle;
     }
 }
 

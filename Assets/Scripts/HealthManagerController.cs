@@ -52,7 +52,8 @@ public class HealthManagerController : MonoBehaviour
                 gameObject.SetActive(false);
 
                 GameManager.instance.KillPlayer();
-                WaveManager.instance.canSpawnWaves = false;
+                WaveManager.instance.ToggleWaves(false);
+
             }
         }
     }
