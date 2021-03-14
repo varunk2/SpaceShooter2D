@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
 
     public void DamageEnemy() {
         currentHealth--;
-        if (currentHealth < 0) {
+        if (currentHealth <= 0) {
             Destroy(gameObject);
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
