@@ -131,7 +131,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 5774109354278984936}
   timeBetweenShots: 0.5
-  canShoot: 0
+  canShoot: 1
   currentHealth: 1
   deathEffect: {fileID: 1953284354122392121, guid: cb3d888b71189b047905dde568e0fa25,
     type: 3}

@@ -12,10 +12,16 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start() {
+        UIManager.instance.SetLives(currentLives);        
+    }
+
     public void KillPlayer() {
         currentLives--;
-        
-        if(currentLives > 0) {
+        UIManager.instance.SetLives(currentLives);
+
+
+        if (currentLives > 0) {
             // Respawn Code
             StartCoroutine(RespawnCoroutine());
         } else {
