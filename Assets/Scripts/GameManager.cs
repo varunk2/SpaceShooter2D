@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int currentLives = 3;
+    public int currentLives;
     public float respawnTime = 2f;
 
     private void Awake() {
@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        UIManager.instance.SetLives(currentLives);        
+        UIManager.instance.SetLives(currentLives);
     }
 
     public void KillPlayer() {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator RespawnCoroutine() {
+    private IEnumerator RespawnCoroutine() {
         yield return new WaitForSeconds(respawnTime);
 
         // Respawn Player

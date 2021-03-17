@@ -26,12 +26,15 @@ public class HealthManagerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        UIManager.instance.SetHealthBarValues(currentHealth, maxHealth);
     }
 
     void Update()
     {
         Invincibility();
     }
+
+    public int GetPlayerHealth() { return maxHealth; }
 
     private void Invincibility() {
         if(_invincibleCounter >= 0) {
@@ -46,6 +49,7 @@ public class HealthManagerController : MonoBehaviour
     public void DamagePlayer() {
         if (_invincibleCounter <= 0) {
             currentHealth--;
+            UIManager.instance.ChangeHealthBarValue(currentHealth);
 
             if (currentHealth < 0) {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -61,6 +65,7 @@ public class HealthManagerController : MonoBehaviour
     public void Respawn() {
         gameObject.SetActive(true);
         currentHealth = maxHealth;
+        UIManager.instance.ChangeHealthBarValue(currentHealth);
 
         _invincibleCounter = invincibleLength;
 

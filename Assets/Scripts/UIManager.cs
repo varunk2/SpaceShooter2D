@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameObject gameOverScreen;
     public Text livesText;
+    public Slider healthBar;
 
     private void Awake() {
         instance = this;
@@ -24,6 +25,19 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public void SetHealthBarValues(int currentHealth, int maxHealth) {
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+    }
+
+    public void ChangeHealthBarValue(int currentHealth) {
+        healthBar.value = currentHealth;
+    }
+
+    public void SetLives(int currentLives) {
+        livesText.text = "x " + currentLives;
+    }
+
     public void ToggleGameOverScreen(bool toggle) {
         gameOverScreen.SetActive(toggle);
     }
@@ -31,13 +45,10 @@ public class UIManager : MonoBehaviour
     public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
+
+
     public void QuitToMain() {
 
-    }
-
-    public void SetLives(int currentLives) {
-        livesText.text = "x " + currentLives;
-    }
+    }   
 
 }
